@@ -2,9 +2,12 @@
 var circ_rad = 3;
 
 
-var width = document.documentElement.clientWidth -200 ,
-	height = document.documentElement.clientHeight;
-	
+var margin = {top: 10, left: 40, bottom: 10, right: 40}
+  , width = parseInt(d3.select('#map').style('width'))
+  , width = width - margin.left - margin.right
+  , mapRatio = .55
+  , height = width * mapRatio;
+
 var twip = "";
 
 var click_state = 0;
@@ -19,6 +22,7 @@ document.addEventListener('mousemove', function(e){
 }, false);
 
 
+
 var projection = d3.geo.mercator()
 	.translate([0, 50])
 	.scale(1.8 * height / 2 / Math.PI);
@@ -29,6 +33,7 @@ var color = d3.scale.linear()
 
 var zoom = d3.behavior.zoom()
 	.scaleExtent([1, 15])
+
 	.on("zoom", move);
 
 var path = d3.geo.path()

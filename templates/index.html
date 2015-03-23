@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Twitter Sentiment Map">
+    <meta name="author" content="TJ Torres">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>SentiMap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+	
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://d3js.org/queue.v1.min.js"></script>
+	<script src="http://d3js.org/topojson.v1.min.js"></script>
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	
+
+
+	
+
+	
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+
+
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+
+		
+	<!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><a href="#home">SentiMap</a></h1>
+			<i class="icon-remove menu-close"></i>
+			<a href="#home" class="smoothScroll">Home</a>
+			<a href="#about" class="smoothScroll">About</a>
+			<a href="#blog" class="smoothScroll">Blog</a>
+			<a href="#contact" class="smoothScroll">Contact</a>
+			<a href="#"><i class="icon-facebook"></i></a>
+			<a href="#"><i class="icon-twitter"></i></a>
+			<a href="http://tjtorres.github.io"><i class="icon-dribbble"></i></a>
+			<a href="mailto:'TJ Torres'<tjtorres@ucsc.edu>"><i class="icon-envelope"></i></a>
+		</div>
+		
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="icon-reorder"></i></div>
+	</nav>
+	
+	
+	
+	<!-- ========== HEADER SECTION ========== -->
+	<section id="home" name="home"></section>
+	<div id="headerwrap">
+		<div class="container">
+			<div class="row">
+							<h1>SentiMap</h1>
+							<h3>Realtime Twitter Sentiment Map</h3>
+							<div class="col-lg-6 col-lg-offset-3">
+							</div>
+						</div>
+			<div  id="map"> </div>
+			
+			<div  id="news">
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h2 class="modal-title" id="myModalLabel">Local News Results</h2>
+						
+						<h4  id="sent"></h4>
+						
+						<h4  id="text"></h4>
+						<h4  id="loc"></h4>
+						
+				      </div>
+				      <div class="modal-body" id= "mod-bod">
+						  
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				
+				
+			</div>
+			
+			
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+	
+	
+			
+
+
+	
+	
+	<!-- ========== ABOUT SECTION ========== -->
+	<section id="about" name="about"></section>
+	<div id="f">
+		<div class="container">
+			<div class="row">
+				<h3>ABOUT SENTIMAP</h3>
+				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+				
+				<!-- INTRO INFORMATION-->
+				<div class="col-lg-6 col-lg-offset-3">
+					<p>SentiMap is a web app that plots the sentiment of geotagged tweets in realtime.</p>
+					<p>The colors range between blue and red, which respresent positive and negative tweets, respectively. 
+					<p>You can pan and zoom around the map by clicking and dragging or scrolling with your mouse and examine the text of user's tweets by mousing-over them. You can also click on a tweet to reveal the most prominent news stories in the vicinity. </p>
+
+				</div>								
+			</div>
+		</div><!-- /container -->
+	</div><!-- /f -->
+	
+	<!-- ========== ABOUT SECTION ========== -->
+	<section id="blog" name="blog"></section>
+	<div id="f">
+		<div class="container">
+			<div class="row">
+				<h3>Blog</h3>
+				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+				
+				<!-- INTRO INFORMATION-->
+				<div class="col-lg-6 col-lg-offset-3">
+					<p> To find out more about the inner workings and for links to code on github, please see my <a href=http://tjtorres.github.io>blog post</a>.</p>
+					
+
+				</div>								
+			</div>
+		</div><!-- /container -->
+	</div><!-- /f -->
+	
+
+
+
+	<!-- ========== CONTACT SECTION ========== -->
+	<section id="contact" name="contact"></section>
+	<div id="f">
+		<div class="container">
+			<div class="row">
+				<h3>ABOUT ME</h3>
+				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+				
+				<div class="col-lg-6 col-lg-offset-3">
+					<p>My name is TJ Torres.</p>
+					<p> I am currently a PhD student in theoretical high-energy physics (graduating and seeking employment in Data Science in June) in the SF Bay Area. </p>
+					<p> Lately, in my spare time, I have been making data visualizations that showcase applications of machine learning. I also enjoy backpacking, snowboarding, skydiving, and flying. </p>
+						
+					
+					<p><button type="button" class="btn btn-warning" onClick="window.location.href='mailto:TJ Torres<tjtorres@ucsc.edu>';">CONTACT ME</button></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	
+	
+	
+	
+	
+	<script src="{{ url_for('static', filename='js/classie.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/smoothscroll.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/colorbrewer.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/jquery.eventsource.js') }}"></script>
+	
+	
+	<script src="{{ url_for('static', filename='js/plot.js') }}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+	  google.load("search", "1");
+	</script>
+</body>
+</html>

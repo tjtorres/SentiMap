@@ -54,6 +54,10 @@ pip install redis flask pymongo
 Start SentiMap.py to run the flask server. The web server will run by default on `localhost:5000`.
 
 
+###Runtime###
+When you want to start, first run `Stream_Mod.py` to set up the database structure and start listening for tweets (this will take a while to start, because the Google vectors binary file is large and takes a while to load into memory). After you've started `Stream_Mod.py` you can move on to starting `SentiMap.py`. 
+
+
 
 
 

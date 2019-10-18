@@ -34,5 +34,5 @@ six==1.9.0
 ssh-import-id==3.21
 tweepy==3.3.0
 urllib3==1.7.1
-Werkzeug==0.10.1
+Werkzeug==0.15.3
 zope.interface==4.0.5

@@ -2,7 +2,7 @@ Cheetah==2.4.4
 colorama==0.2.5
 configobj==4.7.2
 Cython==0.22
-Flask==0.10.1
+Flask==1.0
 gensim==0.10.3
 html5lib==0.999
 itsdangerous==0.24

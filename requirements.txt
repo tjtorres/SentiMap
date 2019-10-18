@@ -12,7 +12,7 @@ jsonpointer==1.0
 Markdown==2.6.1
 MarkupSafe==0.23
 microsofttranslator==0.7
-nltk==3.0.2
+nltk==3.4.5
 numpy==1.9.2
 oauth==1.0.1
 oauthlib==0.7.2

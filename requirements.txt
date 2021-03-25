@@ -23,7 +23,7 @@ pymongo==2.8
 pyserial==2.6
 python-dateutil==2.4.1
 pytz==2014.10
-PyYAML==3.10
+PyYAML==5.4
 redis==2.10.3
 requests==2.5.3
 requests-oauthlib==0.4.2

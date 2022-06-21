@@ -13,7 +13,7 @@ Markdown==2.6.1
 MarkupSafe==0.23
 microsofttranslator==0.7
 nltk==3.0.2
-numpy==1.9.2
+numpy==1.22.0
 oauth==1.0.1
 oauthlib==0.7.2
 pandas==0.15.2
